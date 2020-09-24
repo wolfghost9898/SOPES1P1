@@ -16,11 +16,7 @@ def abrirArchivo(direccion):
 
 #Metodo que separa el contenido en oraciones y devolvera un arreglo de las mismas
 def separarOraciones(contenido):
-    contenido = contenido.replace('\n','');
-    oraciones = re.split(r' *[\.\?!][\'"\)\]]* *', contenido);
-    data = [];
-    for oracion in oraciones:
-        data.append([random.choice(usuarios),oracion]);
+    data = contenido.split(".");
     return data;
 
 
