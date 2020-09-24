@@ -1,0 +1,3 @@
+insmod name.ko -> cargar
+lsmod  -> ver
+rmmod nombre-> eliminar
