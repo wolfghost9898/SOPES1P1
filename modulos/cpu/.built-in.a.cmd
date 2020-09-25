@@ -1,0 +1,1 @@
+cmd_/home/wolfghost/Escritorio/2020/Sopes/modulos/cpu/built-in.a := rm -f /home/wolfghost/Escritorio/2020/Sopes/modulos/cpu/built-in.a; ar cDPrST /home/wolfghost/Escritorio/2020/Sopes/modulos/cpu/built-in.a 

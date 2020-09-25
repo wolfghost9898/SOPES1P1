@@ -1,0 +1,1 @@
+cmd_/home/wolfghost/Escritorio/2020/Sopes/modulos/memoria/memoria.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /home/wolfghost/Escritorio/2020/Sopes/modulos/memoria/memoria.ko /home/wolfghost/Escritorio/2020/Sopes/modulos/memoria/memoria.o /home/wolfghost/Escritorio/2020/Sopes/modulos/memoria/memoria.mod.o;  true

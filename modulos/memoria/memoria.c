@@ -12,9 +12,10 @@ struct sysinfo inf;
 
 static int my_proc_show(struct seq_file *m,void *v){
     si_meminfo(&inf);
-    seq_printf(m, "\"RAM Total\": \t%li\n", (inf.totalram*4)/(1024));
-    seq_printf(m, " \"RAM Libre:\" \t%li\n", (inf.freeram*4)/(1024));
-    seq_printf(m, "\"RAM en uso\": \t%li %%\n",((inf.totalram-inf.freeram)*100)/inf.totalram);
+    seq_printf(m, "{\n", (inf.totalram*4)/(1024));
+    seq_printf(m, "\"total\": %li,\n", (inf.totalram*4)/(1024));
+    seq_printf(m, " \"libre\": %li,\n", (inf.freeram*4)/(1024));
+    seq_printf(m, "\"uso\": %li \n}",((inf.totalram-inf.freeram)*100)/inf.totalram);
     return 0;
 } 
 
