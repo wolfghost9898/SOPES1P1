@@ -1,0 +1,1 @@
+cmd_/home/wolfghost/Escritorio/2020/Sopes/modulos/cpu/moduloCPU.mod := { echo  /home/wolfghost/Escritorio/2020/Sopes/modulos/cpu/moduloCPU.o; echo; } > /home/wolfghost/Escritorio/2020/Sopes/modulos/cpu/moduloCPU.mod
