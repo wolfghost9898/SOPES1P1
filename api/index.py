@@ -3,12 +3,12 @@ from flask import Flask,jsonify,request
 from task.Files import abrirArchivo
 import json
 from flask_pymongo import PyMongo
-
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 
 app.debug = True 
-
+os.environ["HOST"]
 ######################################### BASE DE DATOS ####################################################
 host = os.environ["HOST"]
 app.config['MONGO_DBNAME'] = 'PROYECTO1'
