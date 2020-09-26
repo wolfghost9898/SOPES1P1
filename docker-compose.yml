@@ -7,6 +7,8 @@ services:
     build:
         dockerfile: Dockerfile
         context: ./api
+    environment:
+      - HOST=mongo
     ports:
       - '80:5000'
     volumes:

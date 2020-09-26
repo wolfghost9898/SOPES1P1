@@ -1,3 +1,4 @@
+import os
 from flask import Flask,jsonify,request
 from task.Files import abrirArchivo
 import json
@@ -9,7 +10,7 @@ app = Flask(__name__)
 app.debug = True 
 
 ######################################### BASE DE DATOS ####################################################
-host = "192.168.1.32"
+host = os.environ["HOST"]
 app.config['MONGO_DBNAME'] = 'PROYECTO1'
 app.config['MONGO_URI'] = 'mongodb://' + host + ':27017/PROYECTO1'
 
