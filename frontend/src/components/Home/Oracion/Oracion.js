@@ -5,10 +5,10 @@ const Oraciones = ({oraciones}) =>{
     return(
         <div>      
           {oraciones.map((oracion,i) => (
-            <div className="card" key={i}>
+            <div className="card border-info mt-2 mb-2 bg-dark text-white" key={i}>
+              <h5 className="card-header">{oracion.usuario}</h5>
               <div className="card-body">
-                <h5 className="card-title">{oracion.oracion}</h5>
-                <p className="card-text">{oracion.usuario}</p>
+                <p className="card-text">{oracion.oracion}</p>
               </div>
             </div>
           ))}
