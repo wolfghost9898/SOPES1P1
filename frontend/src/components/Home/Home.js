@@ -5,6 +5,7 @@ import './Style.css'
 class Home extends Component{
     
     index = 0;
+    intervalID;
     state = {
         oraciones: [],
         url : ['http://3.134.109.208/getAll','']
@@ -20,7 +21,14 @@ class Home extends Component{
     componentDidMount(){
         document.title = "Home"
         this.getData()
+        this.intervalID = setInterval(this.getData,3000)
     }
+
+    componentWillUnmount() {
+        console.log("Dejando de escuchar")
+        clearInterval(this.intervalID);
+    }
+
 
     getData(){
         fetch(this.state.url[this.index])
@@ -48,9 +56,7 @@ class Home extends Component{
 
         return(
             <main role="main" className="flex-shrink-0 mt-5 main">
-                <div className="container py-md-2">
-                
-                
+                <div className="container py-md-4">
                     <select  className="select mt-2" onChange={this.tipoServidor}>
                         <option  defaultValue value="0">Servidor A</option>
                         <option value="1">Servidor B</option>
