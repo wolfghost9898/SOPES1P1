@@ -5,7 +5,7 @@ class Home extends Component{
     
     state = {
         oraciones: [],
-        url : 'http://192.168.1.32/getAll'
+        url : 'http://18.218.103.187/getAll'
     }
     componentDidMount(){
         document.title = "Home"
