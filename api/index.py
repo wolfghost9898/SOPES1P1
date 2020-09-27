@@ -6,9 +6,8 @@ from flask_pymongo import PyMongo
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
-
 app.debug = True 
-os.environ["HOST"]
+CORS(app)
 ######################################### BASE DE DATOS ####################################################
 host = os.environ["HOST"]
 app.config['MONGO_DBNAME'] = 'PROYECTO1'
@@ -27,7 +26,9 @@ RUTA PARA OBTENER TODA LA INFROMACION DEL SERVIDOR
 def index():
     data = abrirArchivo(direccion + 'cpu-module')
     if (data == 0):
-        return jsonify({'status':400, 'data':'no existe un archivo de informacion para el cpu'})
+        response = jsonify({'status':400, 'data':'no existe un archivo de informacion para el cpu'})
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
     
     data = json.loads(data)
     hz = data["HZ"]
@@ -40,17 +41,22 @@ def index():
 
     dataMemoria = abrirArchivo(direccion + 'memoria-module')
     if (dataMemoria == 0):
-            return jsonify({'status':400, 'data':'no existe un archivo de informacion para la memoria'})
+            response = jsonify({'status':400, 'data':'no existe un archivo de informacion para la memoria'})
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            return response
     
     dataMemoria = json.loads(dataMemoria)
     #print(dataMemoria)
-    return jsonify({
+    
+    response = jsonify({
         'status':200, 
         'cpu': porcentaje,
         'total' : dataMemoria['total'],
         'libre' : dataMemoria['libre'],
         'ram' : dataMemoria['uso']
         })
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 '''
 RUTA PARA GUARDAR UNA NUEVA ORACION
@@ -63,10 +69,12 @@ def addOracion():
     oracion = request.json['oracion']
     data = mongo.db.data 
     data_id = data.insert({'usuario' : usuario, 'oracion' : oracion})
-    return jsonify({
+    response = jsonify({
         'status': 200,
         'data' : 'insertado con exito'
     })
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 
 '''
@@ -79,10 +87,12 @@ def getOraciones():
     output = []
     for s in data.find():
         output.append({'usuario' : s['usuario'], 'oracion' : s['oracion']})
-    return jsonify({
+    response = jsonify({
         'status' : 200,
         'result' : output
         })
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 
 
