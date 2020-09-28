@@ -31,10 +31,10 @@ static int my_proc_show(struct seq_file *m,void *v){
         }
         
     }
-    seq_printf(m, "{\n", );
+    seq_printf(m, "{\n");
     seq_printf(m, "\"HZ\" : %d ,\n", hz);
     seq_printf(m, "\"tiempo\" : %u ,\n", tiempoTotal);
-    seq_printf(m, "\"segundos \": %llu \n", segundos);
+    seq_printf(m, "\"segundos\": %llu \n", segundos);
     seq_printf(m, " }");
     return 0;
 } 

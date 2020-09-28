@@ -1,4 +1,4 @@
-obj-m := moduloMemoria.o
+obj-m := memoria.o
 
 CC	= gcc
 CFLAGS-y	= -g

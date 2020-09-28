@@ -1,0 +1,1 @@
+cmd_/home/wolfghost/Escritorio/2020/Sopes/modulos/cpu/moduloCPU.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /home/wolfghost/Escritorio/2020/Sopes/modulos/cpu/moduloCPU.ko /home/wolfghost/Escritorio/2020/Sopes/modulos/cpu/moduloCPU.o /home/wolfghost/Escritorio/2020/Sopes/modulos/cpu/moduloCPU.mod.o;  true

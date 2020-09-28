@@ -1,0 +1,1 @@
+cmd_/home/wolfghost/Escritorio/2020/Sopes/modulos/memoria/memoria.mod := { echo  /home/wolfghost/Escritorio/2020/Sopes/modulos/memoria/memoria.o; echo; } > /home/wolfghost/Escritorio/2020/Sopes/modulos/memoria/memoria.mod

@@ -1,20 +1,24 @@
-#include <linux/proc_fs.h>
-#include <linux/seq_file.h>
-#include <asm/uaccess.h>
-#include <linux/hugetlb.h>
-#include <linux/module.h>
+#include <linux/fs.h>
 #include <linux/init.h>
 #include <linux/kernel.h>
-#include <linux/fs.h>
+#include <linux/hugetlb.h>
+#include <linux/module.h>
+#include <linux/proc_fs.h>
+#include <linux/seq_file.h>
 
-#define BUFESIZE    150
-struct sysinfo inf;
+
 
 static int my_proc_show(struct seq_file *m,void *v){
-    si_meminfo(&inf);
-    seq_printf(m, "\"RAM Total\": \t%li\n", (inf.totalram*4)/(1024));
-    seq_printf(m, " \"RAM Libre:\" \t%li\n", (inf.freeram*4)/(1024));
-    seq_printf(m, "\"RAM en uso\": \t%li %%\n",((inf.totalram-inf.freeram)*100)/inf.totalram);
+    struct sysinfo info;
+    si_meminfo(&info); 
+	unsigned long mem_total = ((info.totalram*info.mem_unit) / 1024) / 1024; 
+	unsigned long mem_libre = ((info.freeram*info.mem_unit) / 1024) / 1024; 
+	int utilizado = ((mem_total - mem_libre) * 100) / mem_total;     
+    seq_printf(m, "{\n");
+    seq_printf(m, "\"total\": %lu,\n",mem_total);
+    seq_printf(m, " \"libre\": %lu,\n", mem_libre);
+    seq_printf(m, "\"uso\": %i \n}",utilizado);
+    
     return 0;
 } 
 
