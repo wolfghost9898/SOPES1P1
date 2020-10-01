@@ -5,6 +5,7 @@ import './App.css';
 import Home from './components/Home/Home'
 import PageError from './components/Error/Error'
 import NavBar from './components/NavBar/NavBar'
+import Graficos from './components/Graficos/Graficos'
 
 class App extends Component{
   render(){
@@ -17,6 +18,11 @@ class App extends Component{
               exact
               path="/"
               component={Home}
+            />
+            <Route
+              exact 
+              path="/Graficos"
+              component={Graficos}
             />
             <Route component={PageError}/>
           </Switch>

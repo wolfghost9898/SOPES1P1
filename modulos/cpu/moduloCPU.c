@@ -10,7 +10,7 @@
 #include <linux/ktime.h>
 
 s64  uptime;
-static int hz = 100;
+int hz = 100;
 
 struct task_struct *task;
 struct task_struct *task_child;
@@ -20,15 +20,20 @@ static int my_proc_show(struct seq_file *m,void *v){
     int tiempoTotal = 0;
     int tiempoI=0;
     int segundos = 0;
+
     for_each_process(task){
         uptime = ktime_divns(ktime_get_coarse_boottime(), NSEC_PER_SEC);
         tiempoTotal = tiempoTotal + task->utime + task->stime;
-        tiempoI = tiempoI + task->start_time;       
+        tiempoI =  task->start_time;       
         segundos = segundos + (uptime - (tiempoI / hz));
+        
+        /*
         list_for_each(list, &task->children){                        
             task_child = list_entry( list, struct task_struct, sibling );    
             tiempoTotal = tiempoTotal + task_child->utime +task_child->stime;
         }
+        */
+        
         
     }
     seq_printf(m, "{\n");

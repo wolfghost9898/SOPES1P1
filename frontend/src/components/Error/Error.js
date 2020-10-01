@@ -7,9 +7,10 @@ class Home extends Component{
 
     render(){
         return(
-            <div className="page">
-                <p>Página no encontrada</p>
-            </div>
+            <main role="main" className="flex-shrink-0 mt-5">
+                <br></br>
+               <h1>Pagina no Encontrada :(</h1>
+            </main>
         );
     }
 }
