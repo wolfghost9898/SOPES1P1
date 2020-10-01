@@ -1,6 +1,4 @@
 import re
-import random
-usuarios = ["Carlos","Ana","Juan","Luis","Maria","Gabriela"];
 
 #Abrira un archivo y devolvera el contenido, o un error si no existe dicho archivo
 def abrirArchivo(direccion):
