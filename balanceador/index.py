@@ -10,8 +10,8 @@ app = Flask(__name__)
 app.debug = True 
 CORS(app)
 
-servidorA = "http://18.191.213.205/"
-servidorB = "http://18.223.131.219/"
+servidorA = "http://18.222.14.62/"
+servidorB = "http://3.17.62.246/"
 
 
 '''
@@ -43,9 +43,12 @@ def addOracion():
 
     oracionesA = requests.get(servidorA + 'getAll')
     oracionesA = oracionesA.json()
+    oracionesA = oracionesA["result"]
 
     oracionesB = requests.get(servidorB + 'getAll')
-    oracionesB = oracionesB.json();
+    oracionesB = oracionesB.json()
+    oracionesB = oracionesB["result"]
+
 
     ######################### COMPARAR CANTIDAD DE DATOS ###########################################    
     if(len(oracionesA) > len(oracionesB)):
