@@ -55,7 +55,7 @@ def main():
                 data = [];
         #-------------------------------- ALMACENAMOS LA DIRECION URL PARA HACER LAS PETICIONES --------------------------------------
         elif(numero == 2):
-            direccionURL = input("Ingresa una url valida para realizar la peticion")
+            direccionURL = input("Ingresa una url valida para realizar la peticion: ")
             flagDireccion = 1
         #----------------------- MOSTRAR DATA DEL ARCHIVO ----------------------------
         elif (numero == 3):

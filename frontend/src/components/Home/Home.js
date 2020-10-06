@@ -8,7 +8,7 @@ class Home extends Component{
     intervalID;
     state = {
         oraciones: [],
-        url : ['http://18.222.14.62/getAll','http://3.17.62.246/getAll']
+        url : ['http://18.220.165.254:4200/getAll','http://18.222.62.135:4200/getAll']
     }
 
     constructor(){
