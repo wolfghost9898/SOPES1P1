@@ -1,6 +1,5 @@
 version: '3.7'
 services:
-
   api:
     container_name: api
     image: api
@@ -10,11 +9,26 @@ services:
     environment:
       - HOST=mongo
     ports:
-      - '80:5000'
+      - '4200:4200'
     volumes:
       - '/proc:/elements/proc/'
     depends_on:
       - mongo
+    network_mode: host
+  
+  balanceador:
+    container_name: balanceador
+    image: balanceador
+    build:
+        dockerfile: Dockerfile
+        context: ./balanceador
+    environment:
+      - HOST=mongo
+    ports:
+      - '80:5000'
+    depends_on:
+      - mongo
+    network_mode: host
 
 
   mongo:
