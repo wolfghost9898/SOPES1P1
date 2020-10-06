@@ -10,8 +10,8 @@ app = Flask(__name__)
 app.debug = True 
 CORS(app)
 
-servidorA = "http://18.222.14.62:4200/"
-servidorB = "http://3.17.62.246:4200/"
+servidorA = "http://18.220.165.254:4200/"
+servidorB = "http://18.222.62.135:4200/"
 
 
 '''
