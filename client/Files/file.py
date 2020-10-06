@@ -14,6 +14,7 @@ def abrirArchivo(direccion):
 
 #Metodo que separa el contenido en oraciones y devolvera un arreglo de las mismas
 def separarOraciones(contenido):
+    contenido = contenido.replace('\n','').replace('\r','')
     data = contenido.split(".");
     return data;
 
