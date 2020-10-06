@@ -4,6 +4,7 @@ import json
 from flask_cors import CORS, cross_origin
 import requests
 from task.Save import *
+from requests.exceptions import ConnectionError
 
 
 app = Flask(__name__)
@@ -24,20 +25,27 @@ def addOracion():
     usuario = request.json['usuario']
     oracion = request.json['oracion']
 
-
-    responseA = requests.get(servidorA)
-    responseB = requests.get(servidorB)
+    statusA = True
+    statusB = True
+    try:
+        responseA = requests.get(servidorA)
+    except ConnectionError:
+        statusA = False
+    try:
+        responseB = requests.get(servidorB)
+    except ConnectionError:
+        statusB = False
     
     #print(responseA.json())
     #Si hay un error con el servidor A y en el B se notifica
-    if(responseA.status_code != 200 and responseB.status_code != 200):
+    if(statusA == False and statusB == False):
         return errorGuardar()
     
     #El servidor A esta caido
-    if(responseA.status_code != 200):
+    if(statusA == False):
         return guardarServidorB(servidorB,{'usuario':usuario,'oracion':oracion})
     #El servidor B esta caido
-    if(responseB.status_code != 200):
+    if(statusB == False):
         return guardarServidorA(servidorA,{'usuario':usuario,'oracion':oracion})
     
 
