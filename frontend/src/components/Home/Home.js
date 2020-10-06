@@ -8,7 +8,7 @@ class Home extends Component{
     intervalID;
     state = {
         oraciones: [],
-        url : ['http://3.134.109.208/getAll','']
+        url : ['http://18.220.165.254:4200/getAll','http://18.222.62.135:4200/getAll']
     }
 
     constructor(){
@@ -21,12 +21,13 @@ class Home extends Component{
     componentDidMount(){
         document.title = "Home"
         this.getData()
-        this.intervalID = setInterval(this.getData,3000)
+        this.intervalID = setInterval(this.getData,5000)
     }
 
     componentWillUnmount() {
+        clearTimeout(this.intervalID);
         console.log("Dejando de escuchar")
-        clearInterval(this.intervalID);
+
     }
 
 
@@ -37,6 +38,7 @@ class Home extends Component{
             data = data['result']
             this.setState({oraciones : data})
             //console.log(data)
+            
         })
         .catch(err =>{
             console.error(err)
@@ -52,8 +54,6 @@ class Home extends Component{
 
 
     render(){
-
-
         return(
             <main role="main" className="flex-shrink-0 mt-5 main">
                 <div className="container py-md-4">

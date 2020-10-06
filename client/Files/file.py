@@ -1,6 +1,4 @@
 import re
-import random
-usuarios = ["Carlos","Ana","Juan","Luis","Maria","Gabriela"];
 
 #Abrira un archivo y devolvera el contenido, o un error si no existe dicho archivo
 def abrirArchivo(direccion):
@@ -16,6 +14,7 @@ def abrirArchivo(direccion):
 
 #Metodo que separa el contenido en oraciones y devolvera un arreglo de las mismas
 def separarOraciones(contenido):
+    contenido = contenido.replace('\n','').replace('\r','')
     data = contenido.split(".");
     return data;
 

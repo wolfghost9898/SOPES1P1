@@ -1,0 +1,2 @@
+D:\Escritorio\2020\SOPES 1\Laboratorio\Proyecto 1\client\Test\test.txt
+http://18.220.165.254/balanceador
