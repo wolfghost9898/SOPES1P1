@@ -5,7 +5,7 @@ import Line from './Line/LineGraph'
 class Graficos extends Component{
     intervalID;
     state = {
-        url : ['http://18.220.165.254:4200/','http://18.222.62.135:4200/'],
+        url : ['http://13.58.77.109:4200/','http://3.137.205.185:4200/'],
         cpu1 : [0,0,0,0,0,0,0],
         ram1 : [0,0,0,0,0,0,0],
         cpu2 : [0,0,0,0,0,0,0],
